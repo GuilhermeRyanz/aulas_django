@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Abstrata_modelo_base(models.Model):
+class ModelBase(models.Model):
     id = models.BigAutoField(
         db_column='id',
         null=False,
@@ -9,19 +9,19 @@ class Abstrata_modelo_base(models.Model):
     )
 
     active = models.BooleanField(
-        db_column='active',
+        db_column='cs_active',
         null=False,
         default=True
     )
 
     created_at = models.DateTimeField(
-        db_column='created_at',
+        db_column='dt_created',
         auto_now_add=True,
         null=True
     )
 
     modified_at = models.DateTimeField(
-        add_colum='modified_at',
+        db_column='dt_modified',
         auto_now=True,
         null=True
     )
@@ -31,11 +31,11 @@ class Abstrata_modelo_base(models.Model):
         managed = True
 
 
-class Cliente(Abstrata_modelo_base):
+class Cliente(ModelBase):
 
     name = models.CharField(
         db_column='name',
-        max_length=100,
+        max_length=70,
         null=False
     )
 
@@ -57,7 +57,7 @@ class Cliente(Abstrata_modelo_base):
     )
 
 
-class Product(Abstrata_modelo_base):
+class Product(ModelBase):
     description = models.TextField(
         db_column='description',
         null=False
@@ -65,10 +65,11 @@ class Product(Abstrata_modelo_base):
 
     quantity = models.IntegerField(
         db_column='quantity',
-        null=False
+        null=False,
+        default=()
     )
 
-class Employee(Abstrata_modelo_base):
+class Employee(ModelBase):
     name = models.CharField(
         db_column='name',
         max_length=70,

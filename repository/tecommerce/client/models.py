@@ -31,7 +31,7 @@ class ModelBase(models.Model):
         managed = True
 
 
-class Cliente(ModelBase):
+class Client(ModelBase):
 
     name = models.CharField(
         db_column='name',
@@ -67,18 +67,4 @@ class Product(ModelBase):
         db_column='quantity',
         null=False,
         default=()
-    )
-
-class Employee(ModelBase):
-    name = models.CharField(
-        db_column='name',
-        max_length=70,
-        null=False
-
-    )
-
-    registraction = models.CharField(
-        db_column='registraction',
-        max_length=15,
-        null=False
     )

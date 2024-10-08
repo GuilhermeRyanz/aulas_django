@@ -12,5 +12,6 @@ class Sale(ModelBase):
     id_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
     nrf = models.CharField(
+        db_column='nrf',
         max_length=255,
         null=False,)
